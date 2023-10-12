@@ -1,24 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import {BrowserRouter as Router, Navigate, Route, Routes} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
+import {useEffect} from "react";
+import {HeaderContextProvider} from "./common/HeaderContextProvider";
+import {login} from "./store/slice/authSlice";
+import Root from "./layout/Root";
+import Index from "./layout/Index";
+import Contents from "./packages/content/content/Contents";
+import CreateContent from "./packages/content/content/Create";
+import ViewContent from "./packages/content/content/View";
 
 function App() {
+
+  const dispatch = useDispatch();
+  const isLoggedIn = useSelector((state) => state.isLoggedIn);
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem('loginUser');
+    if (storedUser) {
+      const user = JSON.parse(storedUser);
+      dispatch(login(user));
+    }
+  }, [dispatch]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <HeaderContextProvider>
+        <Router>
+            <Routes>
+                <Route path="/" element={<Root />} >
+                <Route index element={<Index />} />
+                <Route path="/content" element={<Contents />} />
+                <Route path="/content/create" element={<CreateContent />} />
+                <Route path="/content/update/:id" element={<ViewContent />} />
+            </Route>
+            </Routes>
+        </Router>
+    </HeaderContextProvider>
   );
 }
 
