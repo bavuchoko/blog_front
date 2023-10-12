@@ -1,5 +1,5 @@
 /* 예: 큰 화면(데스크톱)에 대한 스타일 */
-@media (min-width: 992px) {
+@media (min-width: 820px) {
 
 
     .menu-close{
@@ -76,4 +76,98 @@
         text-align: center;
         margin-top: 40px;
     }
+    .nav-row{
+        padding: 15px 15px 10px;
+        width: 100%;
+        height: 80px;
+    }
+
+    .nav-profile{
+        min-width: calc(100% - 220px);
+    }
+    .profile-img{
+        border: 1px solid black;
+        width: 50px;
+        border-radius: 50px;
+    }
+    .nav-profile-info{
+        margin-top: 3px;
+        margin-left: 15px;
+    }
+    .nav-profile-name{
+        color: #504f4f;
+        font-weight: bold;
+    }
+    .nav-profile-mood{
+        font-size: 0.8rem;
+        color: #808080;
+    }
+    .nav-git-link :hover{
+        border-bottom: 1px solid #000;
+        text-decoration: none;
+    }
+    .nav-git-icon{
+        width: 14px;
+        margin-top: -3px;
+        margin-right: 5px;
+        display: inline-block;
+    }
+    .nav-profile-link{
+        font-size: 0.8rem;
+        font-weight: bold;
+    }
+    .nav-menu{
+        position: fixed;
+        top:20px;
+        right: 15px;
+        height: 38px;
+        width: 220px;
+        display: flex;
+    }
+    .nav-input-area{
+        cursor: pointer;
+        width: 38px;
+        height: 38px;
+        display: block;
+        outline: none;
+        border: 1px solid #d2d1d1;
+        border-radius: 3px;
+    }
+    .nav-input-icon{
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        top:10px;
+        left: 10px;
+    }
+    .nav-input{
+        display: inline-block;
+        width: 30px;
+    }
+    .nav-menu-btn{
+        position: relative;
+        margin-left: 10px;
+        border-radius: 3px;
+        width: 170px;
+        height: 38px;
+        border: 1px solid green;
+    }
+    .nav-menu-name{
+        font-size: 0.7rem;
+        font-weight: bold;
+        text-align: left;
+        display: inline-block;
+        letter-spacing: 1px;
+        color: green;
+    }
+    .nav-faChevronDown{
+        color: green;
+        margin-left: 65px;
+        display: inline-block;
+        font-size: 0.8rem;
+    }
+    .nav-faBars{
+        display: none   ;
+    }
+
 }
