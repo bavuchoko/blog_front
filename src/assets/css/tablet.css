@@ -1,0 +1,4 @@
+/* 예: 중간 화면(태블릿)에 대한 스타일 */
+@media (min-width: 768px) and (max-width: 991px) {
+    /* 스타일 정의 */
+}

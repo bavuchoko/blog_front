@@ -1,0 +1,79 @@
+/* 예: 큰 화면(데스크톱)에 대한 스타일 */
+@media (min-width: 992px) {
+
+
+    .menu-close{
+        top:50px;
+        right: 10px;
+        position: absolute;
+    }
+    .slideMenu{
+        display: none;
+    }
+    .user-panel{
+        padding: 80px 25px 10px;
+        background-color: white;
+    }
+    .user-right{
+        margin-left: 6px;
+        margin-bottom: 7px;
+    }
+    .join-right{
+        margin-left: 6px;
+        margin-bottom: 3px;
+    }
+    .user-panel-info{
+        width: calc(100% - 90px);
+    }
+    .user-panel-image{
+        width: 90px;
+        height: 90px;
+        margin-top: 20px;
+        border-radius: 50%;
+
+    }
+    .user-panel-subject{
+        display: inline-block;
+        margin-bottom: 10px;
+        font-size: 2rem;
+        font-weight: bolder;
+    }
+    .user-panel-logout{
+        display: inline-block;
+        margin-bottom: 10px;
+        font-size: 0.9rem;
+    }
+    .user-panel-info > p.sep{
+        font-size: 0.9rem;
+        margin-top: 5px;
+    }
+    .user-age-bold{
+        font-size: 1.2rem;
+        letter-spacing: 2px;
+        font-weight: 600;
+    }
+    .user-personal-info{
+        line-height: 25px;
+    }
+    ul.dropLi{
+        height: 100%;
+        margin-top: 7px;
+        padding-top: 20px;
+        background-color: white;
+    }
+    ul.dropLi > a >li{
+        font-weight: bold;
+        padding: 10px 25px;
+        margin : 10px 0;
+    }
+    .goto-join{
+        display: block;
+        padding: 5px 20px;
+        color: #464545;
+        margin: 0 auto;
+        font-size: 0.9rem;
+        font-weight: bold;
+        text-align: center;
+        margin-top: 40px;
+    }
+}

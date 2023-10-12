@@ -8,7 +8,9 @@ import Index from "./layout/Index";
 import Contents from "./packages/content/content/Contents";
 import CreateContent from "./packages/content/content/Create";
 import ViewContent from "./packages/content/content/View";
-
+import './assets/css/mobile.css';
+import './assets/css/tablet.css';
+import './assets/css/computer.css';
 function App() {
 
   const dispatch = useDispatch();
