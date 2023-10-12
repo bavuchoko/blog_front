@@ -27,3 +27,15 @@ html body{
     margin: 0 5px;
     background-color: #888888;
 }
+.reply-container{
+    border-top: 1px solid #eee;
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+.reply-open-btn{
+    margin-top: 20px;
+}
+.reply-count{
+    font-weight: bold;
+    color: #273673;
+}

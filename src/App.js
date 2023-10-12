@@ -29,7 +29,7 @@ function App() {
         <Router>
             <Routes>
                 <Route path="/" element={<Root />} >
-                <Route index element={<Index />} />
+                <Route index element={<Contents />} />
                 <Route path="/content" element={<Contents />} />
                 <Route path="/content/create" element={<CreateContent />} />
                 <Route path="/content/update/:id" element={<ViewContent />} />

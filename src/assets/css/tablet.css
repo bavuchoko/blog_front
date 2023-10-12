@@ -1,98 +1,10 @@
 /* 예: 중간 화면(태블릿)에 대한 스타일 */
 @media (min-width: 768px) and (max-width: 820px) {
-    .containers{
-        padding-top: 55px;
-    }
+
     .navbar{
         height: 55px;
     }
-    .menu-close{
-        top:20px;
-        right: 10px;
-        position: absolute;
-    }
-    .slideMenu{
-        /*background: white;*/
-        background-color: #e5e5e5;
-        height: calc(100% - 50px);
-        width: 100%;
-        z-index: 990;
-        position: fixed;
-        top:0;
-        right: -100%;
-        transition: transform 0.2s ease-in-out;
-    }
-    .show{
-        transform: translateX(-100%);
-    }
 
-
-    .user-panel{
-        padding: 80px 25px 10px;
-        background-color: white;
-    }
-    .user-right{
-        margin-left: 6px;
-        margin-bottom: 7px;
-    }
-    .join-right{
-        margin-left: 6px;
-        margin-bottom: 3px;
-    }
-    .user-panel-info{
-        width: calc(100% - 90px);
-    }
-    .user-panel-image{
-        width: 90px;
-        height: 90px;
-        margin-top: 20px;
-        border-radius: 50%;
-
-    }
-    .user-panel-subject{
-        display: inline-block;
-        margin-bottom: 10px;
-        font-size: 2rem;
-        font-weight: bolder;
-    }
-    .user-panel-logout{
-        display: inline-block;
-        margin-bottom: 10px;
-        font-size: 0.9rem;
-    }
-    .user-panel-info > p.sep{
-        font-size: 0.9rem;
-        margin-top: 5px;
-    }
-    .user-age-bold{
-        font-size: 1.2rem;
-        letter-spacing: 2px;
-        font-weight: 600;
-    }
-    .user-personal-info{
-        line-height: 25px;
-    }
-    ul.dropLi{
-        height: 100%;
-        margin-top: 7px;
-        padding-top: 20px;
-        background-color: white;
-    }
-    ul.dropLi > a >li{
-        font-weight: bold;
-        padding: 10px 25px;
-        margin : 10px 0;
-    }
-    .goto-join{
-        display: block;
-        padding: 5px 20px;
-        color: #464545;
-        margin: 0 auto;
-        font-size: 0.9rem;
-        font-weight: bold;
-        text-align: center;
-        margin-top: 40px;
-    }
     .nav-row{
         padding: 10px 15px 10px;
         width: 100%;
@@ -155,7 +67,7 @@
         border-radius: 3px;
         width: 40px;
         height: 30px;
-        border: 1px solid green;
+        border: 1px solid #141E46;
     }
     .nav-menu-name{
         display: none;
@@ -165,16 +77,94 @@
     }
     .nav-faBars{
         display: inline-block;
-        color: green;
+        color: #141E46;
     }
     /*----------------------------container--------------------------------*/
 
     .containers{
         padding-top: 55px;
         width: 100%;
-        min-height: 50vh;
+    }
+    .reply-open-btn{
+        padding-left: 15px;
+    }
+    .reply-container{
+        padding: 20px 15px 0;
+    }
+    .reply-ul{
+        margin-bottom: 20px;
+        margin-top: 5px;
+        border-top: 1px solid #e0e0e0;
+    }
+    .replay-list{
+        overflow: hidden;
+        position: relative;
+        padding: 23px 20px 24px;
+        border-bottom: 1px solid #eee;
+    }
+    .reply-user-profile{
+        float: left;
+        margin-right: 16px;
+        border-radius: 50px;
+        width: 50px;
+        height: 50px;
+    }
+    .reply-content{
+        width: calc(100% - 70px);
+        float: left;
+    }
+    .reply-user-name{
+        font-size: 0.8rem;
+        display: block;
+        overflow: hidden;
+        max-width: 515px;
+        margin: 4px 5px 0 0;
+        font-weight: bold;
+        color: #333;
+        white-space: nowrap;
+    }
+    .reply-user-body{
+        display: block;
+        width: 100%;
+        margin-top: 3px;
+        font-size: 12px;
+    }
+    .reply-user-date{
+        display: block;
+        margin-top: 7px;
+        font-size: 12px;
+        color: #aaa;
     }
 
+    .replay-create-area{
+        width: 100%;
+        height: 102px;
+        padding: 13px 15px 10px;
+        border: 1px solid #eee;
+        font-size: 12px;
+        resize: none;
+        box-sizing: border-box;
+        margin-bottom: 5px;
+    }
+    .reply-user-info{
+        width: 120px;
+        height: 36px;
+        padding: 0 15px;
+        border: 1px solid #eee;
+        font-size: 12px;
+        box-sizing: border-box;
+        margin-right: 10px;
+    }
+    .reply-submit{
+        width: 70px;
+        height: 36px;
+        border-radius: 4px;
+        font-size: 12px;
+        line-height: 38px;
+        background-color: #141E46;
+        color: #fff;
+        font-weight: bold;
+    }
     /*----------------------------footer--------------------------------*/
     .footer{
         width: 100%;
@@ -182,18 +172,12 @@
         padding-top: 20px;
     }
     .footer-container{
-        margin: 0 auto;
-        width: 100%;
-        min-height: 10vh;
-        background: #61dafb;
+        display: none;
     }
     .footer-row{
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        display: none;
     }
     .footer-subject{
-        font-size: 0.9rem;
-        font-weight: bold;
-        color: #646363;
+        display: none;
     }
 }
