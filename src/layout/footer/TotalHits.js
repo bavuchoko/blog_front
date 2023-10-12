@@ -10,14 +10,14 @@ function TotalHits(props) {
     return (
         <div>
             <p className="total">{total.total.toLocaleString()}</p>
-            <p>
-            <span className="dayCount">Today</span>
-            <span className="dayCount right">{total.today.toLocaleString()}</span>
-            </p>
-            <p>
-            <span className="dayCount">Yesterday</span>
-            <span className="dayCount right">{total.yesterday.toLocaleString()}</span>
-            </p>
+            <div>
+                <span className="dayCount">Today</span>
+                <span className="dayCount right">{total.today.toLocaleString()}</span>
+            </div>
+            <div>
+                <span className="dayCount">Yesterday</span>
+                <span className="dayCount right">{total.yesterday.toLocaleString()}</span>
+            </div>
         </div>
     );
 }
