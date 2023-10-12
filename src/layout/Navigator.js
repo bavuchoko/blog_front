@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import Menu from "./Menu";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faChevronDown} from "@fortawesome/free-solid-svg-icons/faChevronDown";
 import {faBars} from "@fortawesome/free-solid-svg-icons/faBars";
@@ -49,7 +48,6 @@ function Navigator(props) {
                     </button>
                 </div>
             </div>
-            <Menu closeMenu={closeMenu} open={open}/>
         </div>
     );
 }
