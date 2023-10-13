@@ -1,0 +1,19 @@
+@media (max-width: 768px) {
+
+
+    /*----------------------------footer--------------------------------*/
+    .footer{
+        width: 100%;
+        border-top: 1px solid #ebebeb;
+        padding-top: 20px;
+    }
+    .footer-container{
+        display: none;
+    }
+    .footer-row{
+        display: none;
+    }
+    .footer-subject{
+        display: none;
+    }
+}

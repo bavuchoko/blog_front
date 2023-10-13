@@ -29,11 +29,11 @@ function App() {
         <Router>
             <Routes>
                 <Route path="/" element={<Root />} >
-                <Route index element={<Contents />} />
-                <Route path="/content" element={<Contents />} />
+                    <Route index element={<Contents />} />
+                    <Route path="/content" element={<Contents />} />
+                    <Route path="/content/:id" element={<ViewContent />} />
+                </Route>
                 <Route path="/content/create" element={<CreateContent />} />
-                <Route path="/content/update/:id" element={<ViewContent />} />
-            </Route>
             </Routes>
         </Router>
     </HeaderContextProvider>

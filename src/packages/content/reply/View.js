@@ -19,9 +19,9 @@ function View({data}) {
             <button onClick={()=>replyOpneHandler()} className="reply-open-btn">
                 <span>댓글</span> <span className="reply-count">{data? data.length : 0}</span>
                 {open ?
-                    <FontAwesomeIcon className="reply-faAngleDown" icon={faAngleDown}/>
-                    :
                     <FontAwesomeIcon className="reply-faAngleDown" icon={faAngleUp}/>
+                    :
+                    <FontAwesomeIcon className="reply-faAngleDown" icon={faAngleDown}/>
                 }
             </button>
             {data && data.length > 0 ? (

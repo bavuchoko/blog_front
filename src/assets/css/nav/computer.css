@@ -1,0 +1,164 @@
+/* 예: 큰 화면(데스크톱)에 대한 스타일 */
+@media (min-width: 821px) {
+
+
+    /*----------------------------Navbar--------------------------------*/
+    .nav-row{
+        padding: 15px 50px 10px;
+        width: 100%;
+        height: 80px;
+    }
+
+    .nav-profile{
+        min-width: calc(100% - 220px);
+    }
+    .profile-img{
+        width: 50px;
+        border-radius: 50px;
+    }
+    .nav-profile-info{
+        margin-top: 3px;
+        margin-left: 15px;
+    }
+    .nav-profile-name{
+        color: #666;
+        font-size: 14px;
+        font-weight: bold;
+        font-family: 'Noto Sans', sans-serif;
+    }
+    .nav-profile-mood{
+        font-size: 12px;
+        color: #aaa;
+    }
+    .nav-git-link :hover{
+        border-bottom: 1px solid #000;
+        text-decoration: none;
+    }
+    .nav-git-icon{
+        width: 14px;
+        margin-top: -3px;
+        margin-right: 5px;
+        display: inline-block;
+    }
+    .nav-profile-link{
+        font-size: 0.8rem;
+        font-weight: bold;
+    }
+    .nav-menu{
+        position: fixed;
+        top:20px;
+        right: 50px;
+        height: 38px;
+        width: 220px;
+        display: flex;
+    }
+    .nav-input-area{
+        cursor: pointer;
+        width: 38px;
+        height: 38px;
+        display: block;
+        outline: none;
+        border: 1px solid #d2d1d1;
+        border-radius: 3px;
+    }
+    .nav-input-icon{
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        top:10px;
+        left: 10px;
+    }
+    .nav-input{
+        display: inline-block;
+        width: 30px;
+    }
+    .nav-menu-btn{
+        position: relative;
+        margin-left: 10px;
+        border-radius: 3px;
+        width: 170px;
+        height: 38px;
+        border: 1px solid #141E46;
+    }
+    .nav-menu-name{
+        font-size: 0.7rem;
+        font-weight: bold;
+        text-align: left;
+        display: inline-block;
+        letter-spacing: 1px;
+        color: #141E46;
+    }
+    .nav-faChevronDown{
+        color: #141E46;
+        margin-left: 65px;
+        display: inline-block;
+        font-size: 0.8rem;
+    }
+    .nav-faBars{
+        display: none   ;
+    }
+
+    /*메뉴 말풍선*/
+    .balloon{
+        border: 1px solid #f0f0f0;
+        background: white;
+        border-radius: 5px;
+        width: 280px;
+        height: 230px;
+        position: fixed;
+        top: 74px;
+        left: 65px;
+        z-index: 100;
+        box-shadow: 0 2px 5px rgba(0,0,0,.1), 0 0 1px rgba(0,0,0,.3);
+    }
+    .balloon:after {
+        content: "";
+        position: absolute;
+        top: -8px;
+        left: 30px;
+        width: 16px;
+        height: 9px;
+        background-image: url(//t1.daumcdn.net/tistory_admin/static/top/pcrtn/layer_edge.png);
+        background-size: 16px 9px;
+    }
+
+    .balloon_profile{
+        overflow: hidden;
+        position: relative;
+        padding: 18px 86px 21px 25px;
+        border-bottom: 1px solid #f0f0f0;
+        line-height: 1.5;
+    }
+    .balloon_name{
+        width: fit-content;
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        color: #4f4e4e !important;
+        font-size: 0.9rem;
+        font-weight: bold !important;
+
+        line-height: 1.5;
+        white-space: nowrap;
+    }
+    .balloon_email{
+        display: block;
+        overflow: hidden;
+        width: 170px;
+        padding: 2px 0 0;
+        text-overflow: ellipsis;
+        color: #909090;
+        font-size: 12px;
+        line-height: 1.5;
+        white-space: nowrap;
+    }
+    .balloon_setting{
+        bottom: 20px;
+        width: inherit;
+        height: inherit;
+        font-size: 12px;
+        color: #909090 !important;
+        position: absolute;
+        right: 25px;
+    }
+}

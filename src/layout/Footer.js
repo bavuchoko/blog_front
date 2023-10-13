@@ -4,7 +4,9 @@ import RecentContent from "./footer/RecentContent";
 import RecentReply from "./footer/RecentReply";
 import TotalHits from "./footer/TotalHits";
 import Link from "./footer/Link";
-
+import '../assets/css/footer/mobile.css';
+import '../assets/css/footer/tablet.css';
+import '../assets/css/footer/computer.css';
 function Footer(props) {
     return (
         <div className="footer">

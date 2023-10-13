@@ -1,0 +1,19 @@
+/* 예: 중간 화면(태블릿)에 대한 스타일 */
+@media (min-width: 768px) and (max-width: 820px) {
+
+    /*----------------------------footer--------------------------------*/
+    .footer{
+        width: 100%;
+        border-top: 1px solid #ebebeb;
+        padding-top: 20px;
+    }
+    .footer-container{
+        display: none;
+    }
+    .footer-row{
+        display: none;
+    }
+    .footer-subject{
+        display: none;
+    }
+}
