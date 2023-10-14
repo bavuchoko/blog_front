@@ -49,6 +49,31 @@ a{
     font-weight: bold;
     color: #273673;
 }
+
+.css-1u9des2-indicatorSeparator{
+    display: none;
+}
+.css-13cymwt-control{
+    border-radius: 0 !important;
+    min-height: 28px !important;
+    font-size: 0.8rem;
+}
+.css-t3ipsp-control{
+    border-radius: 0 !important;
+    min-height: 28px !important;
+}
+.css-t3ipsp-control:hover{
+    min-height: 28px !important;
+}
+.css-15lsz6c-indicatorContainer{
+    padding: 0 5px !important;
+}
+.css-1fdsijx-ValueContainer{
+    padding: 0 5px !important;
+}
+.css-1xc3v61-indicatorContainer{
+    padding: 0 5px !important;
+}
 .ck-toolbar{
     width: 820px !important;
     position: fixed !important;
@@ -71,7 +96,7 @@ a{
     border: none !important;
     outline: none !important;
     box-shadow: none !important;
-    min-height: 50vh !important;
+    min-height: calc(53vh - 66px) !important;
     margin-bottom: 30px !important;
 }
 

@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import Editor from "ckeditor5-custom-build/build/ckeditor";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
+import SelectBox from "../../../components/utils/SelectBox";
 
 
 const editorConfiguration = {
@@ -58,6 +59,9 @@ function Create(props) {
         <>
             <div className="create-header fixed"></div>
             <div className="create-containers">
+                <div className="content-create-gategory">
+                <SelectBox />
+                </div>
                 <input type={"text"} className="content-title" placeholder={'제목을 입력하세요'}/>
                 <CKEditor
                     editor={Editor}

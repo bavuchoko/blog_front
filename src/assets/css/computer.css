@@ -98,10 +98,12 @@
         background-color: #141E46 !important;
     }
 
-
+    .content-create-gategory{
+        width: 150px;
+        padding-top: 120px;
+    }
 
     /*이지윅에디터*/
-
     .create-containers{
         margin: 0 auto;
         width: 820px;
@@ -109,18 +111,16 @@
     .content-title{
         z-index: 900;
         width: 820px;
-        height: 70px;
-        padding-top: 210px;
-        padding-bottom: 30px;
+        height: 80px;
+        padding-top: 20px;
+        padding-bottom: 20px;
         outline: none;
-        font-size: 1.9rem;
+        font-size: 1.8rem;
         border-bottom: 1px solid #eee;
     }
     .ck-toolbar {
         width: 820px !important;
     }
-
-
 
 
     .create-footer{
