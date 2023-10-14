@@ -118,13 +118,17 @@ a{
     height: 10px !important;
 }
 
+.ck.ck-reset.ck-editor{
+    min-height: calc(100vh - 366px) !important;
+}
+
 .ck-content{
     padding: 0 !important;
     margin-top: 20px !important;
     border: none !important;
     outline: none !important;
     box-shadow: none !important;
-    min-height: calc(53vh - 66px) !important;
+
     margin-bottom: 30px !important;
 }
 
@@ -140,6 +144,17 @@ a{
     text-align: right;
 }
 
+.btn-content-cancel{
+    width: 60px;
+    font-size: 0.9rem;
+    margin: 0 30px 4px 0;
+    border-radius: 20px;
+    line-height: 38px;
+    box-sizing: border-box;
+}
+.btn-content-cancel:hover{
+    font-weight: bold;
+}
 .btn-content-submit{
     width: 88px;
     margin: 0 4px;
@@ -152,13 +167,26 @@ a{
 .btn-content-submit:hover{
     background: #e36037;
 }
-
+.tag-div{
+    margin-bottom: 75px;
+}
 .inp_tag {
     display: inline-block;
-    margin: 16px 26px 0 0;
     font-size: 13px;
     color: #909090;
+    height: auto;
     vertical-align: top;
+}
+.tag{
+    background: #d5d4d4;
+    border-radius: 20px;
+    padding: 2px 5px;
+    color: #414141;
+}
+.remove-tag{
+    padding: 4px;
+    color: #c7c2c2;
+    font-size: 0.8rem;
 }
 .tf_g{
     width: 54px;
@@ -170,4 +198,9 @@ a{
     vertical-align: top;
     outline: none;
     box-sizing: content-box;
+}
+.ck.ck-button.ck-on{
+    background: #2f2f2f !important;
+    color: white !important;
+
 }
