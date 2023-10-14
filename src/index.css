@@ -53,12 +53,16 @@ a{
 .css-1u9des2-indicatorSeparator{
     display: none;
 }
+.css-qbdosj-Input{
+    display: none !important;
+}
 .css-13cymwt-control{
     border-radius: 0 !important;
     min-height: 28px !important;
     font-size: 0.8rem;
 }
 .css-t3ipsp-control{
+    border: 0px !important;
     border-radius: 0 !important;
     min-height: 28px !important;
 }
@@ -72,7 +76,11 @@ a{
     padding: 0 5px !important;
 }
 .css-1xc3v61-indicatorContainer{
-    padding: 0 5px !important;
+    position: absolute;
+    top:-7px;
+    right: 0;
+    width: 100%;
+    padding: 10px 10px 10px 120px !important;
 }
 .ck-toolbar{
     width: 820px !important;
@@ -83,10 +91,30 @@ a{
     border-bottom: 1px  solid #eee !important;
     height: 80px !important;
 }
+.ck.ck-reset.ck-dropdown__panel.ck-dropdown__panel_sw.ck-dropdown__panel-visible >.ck.ck-toolbar{
+    position: static !important;
+    width: 380px !important;
+}
+.ck.ck-button__label{
+    width: 30px !important;
+}
+.ck.ck-toolbar__items > .ck.ck-button, .ck.ck-dropdown.ck-font-size-dropdown, .ck.ck-dropdown.ck-font-family-dropdown{
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+.ck.ck-toolbar__items+.ck.ck-toolbar__separator{
+    display: none !important;
+}
+.ck.ck-toolbar.ck-toolbar_vertical{
+    position: static !important;
+    width: 71px !important;
+    height: 100% !important;
+}
 .ck-toolbar__separator{
     margin-top: 13px !important;
-    margin-left: 10px !important;
-    margin-right: 10px !important;
+    margin-left: 8px !important;
+    margin-right: 8px !important;
     height: 10px !important;
 }
 
