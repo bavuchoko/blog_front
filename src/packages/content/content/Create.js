@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import Editor from "ckeditor5-custom-build/build/ckeditor";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import SelectBox from "../../../components/utils/SelectBox";
+import {useNavigate} from "react-router-dom";
 
 
 const editorConfiguration = {
@@ -40,7 +41,7 @@ const editorConfiguration = {
     }
 };
 function Create(props) {
-
+    const navigate = useNavigate();
     const [tag, setTag] = useState('');
     const [tags, setTags] = useState([]);
 
@@ -66,6 +67,9 @@ function Create(props) {
         setTags(updatedTags);
     };
 
+    const goList =() =>{
+        navigate('/content')
+    }
     return (
         <>
             <div className="create-header fixed"></div>
@@ -110,7 +114,7 @@ function Create(props) {
 
 
                 <div className="wrap_btn">
-                    <button id="publish-layer-btn" className="btn-content-cancel">취소</button>
+                    <button id="publish-layer-btn" className="btn-content-cancel" onClick={goList} >취소</button>
                     <button id="publish-layer-btn" className="btn-content-submit">완료</button>
                 </div>
             </div>

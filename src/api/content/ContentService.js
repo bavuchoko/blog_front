@@ -24,12 +24,10 @@ async function deleteContentGame(id) {
 
 }
 
-async function getContentList(startDate, endDate,loginUser) {
+async function getContentList(loginUser) {
     try {
         const params ={
-            startDate: startDate,
-            endDate: endDate,
-            sort: 'playDate,desc'
+            sort: 'createDate,desc'
         }
         if(loginUser){
             return await needAuthApi.get('/content',
