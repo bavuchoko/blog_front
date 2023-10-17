@@ -181,9 +181,18 @@
     .list-order-list:hover{
         background: #f8f8f8;
     }
+    .top-indicator{
+        display: inline-block;
+        background: #FAFBFC;
+        margin-right: 20px;
+        border-right: 1px solid #E0E5EE;
+    }
     .sub-indicator{
         display: inline-block;
         background: #FAFBFC;
+        padding-left: 20px;
+        margin-left: 15px;
+        border-left: 1px solid #E0E5EE ;
         margin-right: 20px;
         border-right: 1px solid #E0E5EE;
     }

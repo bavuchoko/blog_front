@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from "react-router-dom";
-import Close from '../../assets/icons/close.png'
+import Close from '../../assets/icons/close-white.png'
 function Category({open, setCategoryOpen, menus, categoryRef}) {
 
     const style = {
