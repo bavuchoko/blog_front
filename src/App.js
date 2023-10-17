@@ -11,6 +11,7 @@ import ViewContent from "./packages/content/content/View";
 import './assets/css/mobile.css';
 import './assets/css/tablet.css';
 import './assets/css/computer.css';
+import Setting from "./packages/setting/Setting";
 function App() {
 
   const dispatch = useDispatch();
@@ -28,10 +29,13 @@ function App() {
       <HeaderContextProvider>
         <Router>
             <Routes>
-                <Route path="/" element={<Root />} >
+                <Route path="/" element={<Root nav={true} foot={true} />} >
                     <Route index element={<Contents />} />
                     <Route path="/content" element={<Contents />} />
                     <Route path="/content/:id" element={<ViewContent />} />
+                </Route>
+                <Route path="/" element={<Root nav={true} foot={false} />} >
+                    <Route path="/setting" element={<Setting />} />
                 </Route>
                 <Route path="/content/create" element={<CreateContent />} />
             </Routes>

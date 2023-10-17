@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 import Close from '../../assets/icons/close.png'
-function Category({open, setCategoryOpen, menus}) {
+function Category({open, setCategoryOpen, menus, categoryRef}) {
 
     const style = {
         display: open ? 'block' : 'none',
@@ -13,7 +13,7 @@ function Category({open, setCategoryOpen, menus}) {
 
     return (
         <div>
-            <div className="modal_back" style={style}>
+            <div className="modal_back" style={style} ref={categoryRef}>
                 <img className="close-modal" src={Close} onClick={close} alt={'close Icon'}/>
             </div>
             <ul className="category-menu" style={style}>

@@ -1,13 +1,14 @@
 import axios from 'axios'
 
-const BASE_URL = 'https://parkjongsu.com:18443/api';
-// const BASE_URL = 'http://localhost:8080/api';
+// const BASE_URL = 'https://parkjongsu.com:18443/api';
+const BASE_URL = 'https://localhost:8080/api';
 
 const api = axios.create({
     baseURL: BASE_URL,
 });
-
+axios.defaults.withCredentials = true;
 const axiosApi = (options) => {
+
     return axios.create({ baseURL: BASE_URL, ...options })
 }
 

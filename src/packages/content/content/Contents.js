@@ -30,7 +30,7 @@ function Contents(props) {
     }, [loginUser]);
 
     return (
-        <div>
+        <div className="container-container">
 
 
 

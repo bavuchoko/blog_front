@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faChevronDown} from "@fortawesome/free-solid-svg-icons/faChevronDown";
 import {faChevronUp} from "@fortawesome/free-solid-svg-icons/faChevronUp";
@@ -23,6 +23,10 @@ function Navigator(props) {
     const [categoryOpen, setCategoryOpen]=useState(false)
     const menus = useSelector((state) => state.menu);
     const dispatch = useDispatch();
+    const menuRef = useRef();
+    const categoryRef = useRef();
+
+
     const menuOpenHandler = () =>{
         setMenuOpen(!menuOpen)
     }
@@ -43,18 +47,34 @@ function Navigator(props) {
 
             fetchMenus();
         }
+        document.addEventListener("click", handleOutsideClick);
+
+        return () => {
+            document.removeEventListener("click", handleOutsideClick);
+        }
     }, [dispatch, menus]);
+
+    const handleOutsideClick = (e) => {
+        if (menuRef.current && !menuRef.current.contains(e.target)) {
+            // Click is outside the menu, close the menu
+            setMenuOpen(false);
+        }
+        if (categoryRef.current && !categoryRef.current.contains(e.target)) {
+            // Click is outside the menu, close the menu
+            setCategoryOpen(false);
+        }
+    }
 
     return (
         <div className="navbar">
             {/*<Balloon open={open}/>*/}
-            <Menu open={menuOpen}/>
-            <Category open={categoryOpen} setCategoryOpen={setCategoryOpen} menus={menus}/>
+            <Menu open={menuOpen}  menuRef={menuRef} />
+            <Category open={categoryOpen} setCategoryOpen={setCategoryOpen} menus={menus} categoryRef={categoryRef}/>
             <div className="nav-row flex">
                 <div className="nav-profile flex">
                     <Link to= '/'><img src={Pjs} className="profile-img" alt="portrait"/></Link>
                     <div className="nav-profile-info">
-                        <button className="nav-profile-name" onClick={menuOpenHandler}>JONGSU PARK</button>
+                        <button className="nav-profile-name" onClick={menuOpenHandler} ref={menuRef}>JONGSU PARK</button>
                         {menuOpen ?
                             <FontAwesomeIcon className="reply-faAngleDown" icon={faAngleUp}/>
                             :
@@ -75,7 +95,7 @@ function Navigator(props) {
                         <img src={Magnifier} className="nav-input-icon"/>
                         <input type={"text"}  className="nav-input"/>
                     </div>
-                    <button className="nav-menu-btn" onClick={categoryOpenHandler}>
+                    <button className="nav-menu-btn" onClick={categoryOpenHandler}  ref={categoryRef}>
                         <span className="nav-menu-name">CATEGORY</span>
                         {categoryOpen ?
                             (<>

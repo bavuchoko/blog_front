@@ -4,15 +4,19 @@ import Navigator from "./nav/Navigator";
 import Footer from "./Footer";
 
 
-function Root() {
+function Root({nav, foot}) {
 
     return (
         <>
-            <Navigator />
+            {nav &&
+                <Navigator/>
+            }
                 <div className="containers">
                     <Outlet/>
                 </div>
-            <Footer />
+            {foot &&
+                <Footer/>
+            }
         </>
     );
 }

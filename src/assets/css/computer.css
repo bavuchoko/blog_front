@@ -4,9 +4,12 @@
     /*----------------------------container--------------------------------*/
 
     .containers{
-        margin: 0 auto;
-        width: 820px;
+        width: 100%;
         padding-top: 80px;
+    }
+    .container-container{
+        margin: 0 auto;
+        width: 820px;;
     }
     .reply-container{
         padding-top: 20px;
@@ -125,6 +128,130 @@
 
     .create-footer{
         padding: 13px 50px;
+    }
+
+    /*관리페이지*/
+    .setting-container{
+        padding-top: 40px;
+        background: #f3f5f7;
+    }
+    .setting-container-container{
+        margin: 0 auto;
+        width: 1150px;
+        height: calc(100vh - 120px);
+    }
+    .setting-side{
+        width: 216px;
+        float: left;
+        height: 80vh;
+        background: #ffffff;
+    }
+
+    .setting-body{
+        width: 894px;
+        float: right;
+    }
+    .setting-title{
+        margin: -5px 0 9px;
+        font-size: 1.2rem;
+    }
+    .categroy-setting{
+        padding: 25px 29px 0;
+        width: 100%;
+        background: white;
+        border-radius: 1px;
+        border: 1px solid #E0E5EE;
+        color: #9d9c9c;
+    }
+
+    .list_order{
+        margin: 20px 0;
+        padding: 8px;
+        background: #E7EDF3;
+    }
+    .categories-setting{
+        border: 1px solid #E0E5EE;
+    }
+    .list-order-list{
+        position: relative;
+        height:50px;
+        line-height: 50px;
+        margin-bottom: 1px;
+    }
+    .list-order-list:hover{
+        background: #f8f8f8;
+    }
+    .sub-indicator{
+        display: inline-block;
+        background: #FAFBFC;
+        margin-right: 20px;
+        border-right: 1px solid #E0E5EE;
+    }
+    .basic_item-bars{
+        color: #d0d0d0;
+    }
+    .basic_item{
+        cursor: pointer;
+        background: white;
+        color: black;
+        font-size: 1rem;
+    }
+    .basic_item-plus{
+        color: #545252;
+    }
+    .add_item{
+        cursor: pointer;
+        color: black;
+        margin-top: 8px;
+        border: 1px dotted #b6b6b6;
+    }
+    .category-input{
+        width: 320px;
+        height: 40px;
+        outline: none;
+        border: 1px solid #afafaf;
+        padding: 6px 14px;
+    }
+    .order_btn-small{
+        position: absolute;
+        top: 15px;
+        right: 20px;
+    }
+    .order_btn{
+        position: absolute;
+        top: 10px;
+        right: 20px;
+    }
+    .btn-default-small{
+        font-size: 0.7rem;
+        float: left;
+        width: 35px;
+        height: 20px;
+        line-height: 20px;
+        border-radius: 1px;
+        border: 1px solid #bbc1c9;
+        background: #fff;
+        text-align: center;
+        box-shadow: 0 1px 1px rgba(0,0,0,0.08);
+        box-sizing: content-box;
+    }
+    .btn-default{
+        font-size: 0.8rem;
+        float: left;
+        width: 76px;
+        height: 30px;
+        line-height: 30px;
+        border-radius: 1px;
+        border: 1px solid #bbc1c9;
+        background: #fff;
+        text-align: center;
+        box-shadow: 0 1px 1px rgba(0,0,0,0.08);
+        box-sizing: content-box;
+    }
+    .btn-confirm{
+        margin-left: 5px;
+        color: #9a9a9a;
+        border: 1px solid #e0e5ec;
     }
 
 
