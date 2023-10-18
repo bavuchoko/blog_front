@@ -1,4 +1,4 @@
-import {needAuthApi, noAuhApi} from "../instance/Instance";
+import {needAuth, noAuh} from "../instance/Instance";
 
 
 async function getMenus(loginUser) {
@@ -6,11 +6,11 @@ async function getMenus(loginUser) {
     localStorage.removeItem('menu');
     try{
         if(loginUser) {
-            const response = await needAuthApi.get('/menu');
+            const response = await needAuth.get('/menu');
             localStorage.setItem('menu', JSON.stringify(response.data));
             return response
         }else{
-            const response = await noAuhApi.get('/menu');
+            const response = await noAuh.get('/menu');
             localStorage.setItem('menu', JSON.stringify(response.data));
             return response
         }
