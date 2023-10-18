@@ -1,9 +1,9 @@
-import {needAuthApi, noAuhApi} from "../instance/Instance";
+import {needAuth, noAuh} from "../instance/Instance";
 
 
 async function createContent(content) {
     try {
-        const response = await needAuthApi.post('/content/create', content);
+        const response = await needAuth.post('/content/create', content);
         if (response.status === 200) {
             return response;
         }
@@ -14,7 +14,7 @@ async function createContent(content) {
 
 async function deleteContentGame(id) {
     try {
-        const response = await needAuthApi.delete('/content/delete/' + id);
+        const response = await needAuth.delete('/content/delete/' + id);
         if (response.status === 200) {
             return response;
         }
@@ -30,13 +30,13 @@ async function getContentList(loginUser) {
             sort: 'createDate,desc'
         }
         if(loginUser){
-            return await needAuthApi.get('/content',
+            return await needAuth.get('/content',
                 {
                     params: params
                 }
             );
         }else{
-            return await noAuhApi.get('/content',
+            return await noAuh.get('/content',
                 {
                     params: params
                 }
@@ -50,9 +50,9 @@ async function getContentList(loginUser) {
 async function getContentInfo(contentId, loginUser) {
     try {
         if(loginUser) {
-            return await needAuthApi.get('/content/' + contentId);
+            return await needAuth.get('/content/' + contentId);
         }else{
-            return await noAuhApi.get('/content/' + contentId);
+            return await noAuh.get('/content/' + contentId);
         }
     }catch (error){
         return error;

@@ -1,10 +1,10 @@
-import {noAuhApi} from "../instance/Instance";
+import {noAuh} from "../instance/Instance";
 
 
 async function useLogin(loginUser) {
     localStorage.removeItem('accessToken');
     try{
-        const response = await noAuhApi.post('/user/authentication', loginUser);
+        const response = await noAuh.post('/user/authentication', loginUser);
         const user ={
             "id":response.data.id,
             "name":response.data.name,
@@ -25,7 +25,7 @@ async function useLogin(loginUser) {
 async function tokenVaildation() {
     const token = localStorage.getItem('accessToken');
     try{
-        return  await noAuhApi.post('/user/tokenVaildation', token);
+        return  await noAuh.post('/user/tokenVaildation', token);
     }catch (error){
         localStorage.removeItem('accessToken');
         localStorage.removeItem('loginUser');
@@ -35,7 +35,7 @@ async function tokenVaildation() {
 
 async function userJoin(loginUser) {
     try{
-        const response = await noAuhApi.post('/user/create', loginUser);
+        const response = await noAuh.post('/user/create', loginUser);
         localStorage.setItem('accessToken',response.data);
         return response;
     }catch (error){
