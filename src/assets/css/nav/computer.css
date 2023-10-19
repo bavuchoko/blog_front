@@ -137,8 +137,9 @@
     ul.category-menu{
         display: block;
         width: 170px;
-        padding-top: 13px;
-        padding-bottom: 2px;
+        padding-top: 10px;
+        padding-left: 10px;
+        padding-bottom: 20px;
         position: fixed;
         top: 57px;
         right: 52px;
@@ -146,23 +147,36 @@
         border: 1px solid #141E46;
         z-index: 100;
     }
-    ul.category-menu > li:not(.box_division){
+    ul.category-menu > div > li:not(.box_division){
         cursor: pointer;
         display: block;
-        padding-left: 15px;
-        margin-bottom: 7px;
+        padding-left: 10px;
+        margin-bottom: 10px;
         text-decoration: none;
         font-size: 0.8rem;
         color: #666;
     }
-    ul.category-menu > li:hover{
-        font-weight: bold;
-    }
+
     ul.category-menu > li.box_division{
         padding-top: 13px;
         border-top: 1px solid #141E46;
         margin-top: 9px;
     }
+    .top-category{
+        margin-top: 20px !important;
+    }
+    .top-category > a{
+        font-size: 0.9rem;
+        /*border-bottom: 1px  solid #141E46;*/
+    }
+    .sub-category{
+        font-size: 0.9rem !important;
+        margin-left: 10px;
+    }
+    .sub-category:hover{
+        font-weight: bold;
+    }
+
 
     /*메뉴 말풍선*/
     .balloon{
@@ -227,4 +241,6 @@
         position: absolute;
         right: 25px;
     }
+
+
 }

@@ -21,7 +21,8 @@ import {getCategoryList} from "../../api/category/CateogryService";
 function Navigator(props) {
     const [menuOpen, setMenuOpen]=useState(false)
     const [categoryOpen, setCategoryOpen]=useState(false)
-    const menus = useSelector((state) => state.menu);
+
+    const categories = JSON.parse(localStorage.getItem('category'))
     const dispatch = useDispatch();
     const menuRef = useRef();
     const categoryRef = useRef();
@@ -34,7 +35,7 @@ function Navigator(props) {
         setCategoryOpen(!categoryOpen)
     }
     useEffect(() => {
-        if (!menus || menus.length === 0) {
+        if (!categories || categories.length === 0) {
             // menu 값이 없으면 쿼리를 보냅니다.
             async function fetchMenus() {
                 try {
@@ -51,7 +52,7 @@ function Navigator(props) {
         return () => {
             document.removeEventListener("click", handleOutsideClick);
         }
-    }, [dispatch, menus]);
+    }, [dispatch, categories]);
 
     const handleOutsideClick = (e) => {
         if (menuRef.current && !menuRef.current.contains(e.target)) {
@@ -68,7 +69,7 @@ function Navigator(props) {
         <div className="navbar">
             {/*<Balloon open={open}/>*/}
             <Menu open={menuOpen}  menuRef={menuRef} />
-            <Category open={categoryOpen} setCategoryOpen={setCategoryOpen} menus={menus} categoryRef={categoryRef}/>
+            <Category open={categoryOpen} setCategoryOpen={setCategoryOpen} categories={categories} categoryRef={categoryRef}/>
             <div className="nav-row flex">
                 <div className="nav-profile flex">
                     <Link to= '/'><img src={Pjs} className="profile-img" alt="portrait"/></Link>

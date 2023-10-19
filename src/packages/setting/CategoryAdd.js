@@ -6,7 +6,7 @@ import {faChevronDown} from "@fortawesome/free-solid-svg-icons/faChevronDown";
 import {faMinus} from "@fortawesome/free-solid-svg-icons/faMinus";
 import {faPlus} from "@fortawesome/free-solid-svg-icons/faPlus";
 import {faCheck} from "@fortawesome/free-solid-svg-icons/faCheck";
-import {getCategoryList} from "../../api/category/CateogryService";
+import {createCategory, getCategoryList} from "../../api/category/CateogryService";
 function CategoryAdd(props) {
     // const [categories, setCategories] =useState([]);
 
@@ -16,7 +16,7 @@ function CategoryAdd(props) {
     async function getList() {
         try {
             const response = await getCategoryList();
-            setDate(response);
+            setDate(response.data._embedded.categoryDtoList);
         } catch (error) {
             console.error('Error fetching menus:', error);
         }
@@ -34,7 +34,7 @@ function CategoryAdd(props) {
     const [create, setCreate] =useState(false)
     const [name, setName] =useState('')
     const [subCategoryNames, setSubCategoryNames] = useState({});
-    const [validSubCategory, setValidSubCategory] = useState({});
+    const [subFilled, setSubFilled] = useState({});
 
     const filled = name !== null && name.trim() !== '';
 
@@ -47,7 +47,7 @@ function CategoryAdd(props) {
     };
 
 
-    const subCategoryAdder = (id) => {
+    const addSubCategory = (id) => {
         setClickedCreateId(id)
         setCreateMenus((prevState) => ({
             ...prevState,
@@ -66,7 +66,7 @@ function CategoryAdd(props) {
         newSubCategoryNames[id] = '';
         setSubCategoryNames(newSubCategoryNames);
         // 유효성 검사 및 배경색 설정
-        setValidSubCategory((prevState) => ({
+        setSubFilled((prevState) => ({
             ...prevState,
             [id]: false,
         }));
@@ -92,23 +92,58 @@ function CategoryAdd(props) {
         setSubCategoryNames(newSubCategoryNames);
         // 유효성 검사 및 배경색 설정
         const isSubCategoryValid = e.target.value.trim() !== ''; // 입력 값이 공백이 아닌지 확인
-        setValidSubCategory((prevState) => ({
+        setSubFilled((prevState) => ({
             ...prevState,
             [id]: isSubCategoryValid,
         }));
     }
 
-    const saveSubCategory = (id) => {
-        if(validSubCategory[id]){
-            console.log(id)
+//상위 카테고리 저장하기
+    const saveCategory = async() => {
+        if(filled){
+            const category={
+                name:name,
+                order:0,
+                url: '/' + name.toLowerCase()
+            }
+            const response = await createCategory(category)
+
+            if(response.status===200){
+                setName('')
+                getList()
+            }else if(response.response.status===401){
+                alert("로그인이 필요합니다.")
+            }else if(response.response.status===403){
+                alert("등록할 권한이 없습니다.")
+            }
         }else{
             alert('카테고리명을 입력하세요')
         }
     }
 
-    const saveCategory = (e) => {
-        if(filled){
+//하위 카테고리 저장하기
+    const saveSubCategory = async(id) => {
+        if(subFilled[id]){
+            const category={
+                name:subCategoryNames[id],
+                order:0,
+                parent:{id:id},
+                url: '/' + name.toLowerCase()
 
+            }
+            const response = await createCategory(category)
+
+            if(response.status===200){
+                setName('')
+                const newSubCategoryNames = { ...subCategoryNames };
+                newSubCategoryNames[id] = '';
+                setSubCategoryNames(newSubCategoryNames)
+                getList()
+            }else if(response.response.status===401){
+                alert("로그인이 필요합니다.")
+            }else if(response.response.status===403){
+                alert("등록할 권한이 없습니다.")
+            }
         }else{
             alert('카테고리명을 입력하세요')
         }
@@ -128,11 +163,11 @@ function CategoryAdd(props) {
                                     <FontAwesomeIcon className="basic_item-bars pl-[20px] pr-[20px]" icon={faBars}/>
                                     <span>분류 전체보기</span>
                                 </div>
-                            {data._embedded?.categoryDtoe?.map((category, index) =>(
+                            {data.map((category, index) =>(
                                 <div key={`top_${category.id}`}>
                                 <div className="basic_item list-order-list" key={category.id} >
                                     <div className="top-indicator pl-[20px] pr-[20px] w-[55px]" onClick={() => toggleSubMenu(category.id)}>
-                                        {category.sub ?
+                                        {category.child.length > 0 ?
                                             (
                                                 <>
                                             {expandedMenus[category.id] ? (
@@ -150,7 +185,7 @@ function CategoryAdd(props) {
                                     </div>
                                     <span>{category.name}</span>
                                     <div className="order_btn-small">
-                                        <button type="reset" className="btn-default-small btn-cancel" onClick={()=>subCategoryAdder(category.id)}>추가</button>
+                                        <button type="reset" className="btn-default-small btn-cancel" onClick={()=>addSubCategory(category.id)}>추가</button>
                                         <button type="submit" disabled="" className="btn-default-small btn_off btn-confirm">수정</button>
                                         <button type="submit" disabled="" className="btn-default-small btn_off btn-confirm">삭제</button>
                                     </div>
@@ -173,16 +208,16 @@ function CategoryAdd(props) {
                                                 </button>
                                                 <button type="submit" disabled=""
                                                         style={{
-                                                            backgroundColor: validSubCategory[category.id] ? '#141E46' : 'white',
-                                                            color:validSubCategory[category.id] ? 'white':''
+                                                            backgroundColor: subFilled[category.id] ? '#141E46' : 'white',
+                                                            color:subFilled[category.id] ? 'white':''
                                                         }}
-                                                        onClick={saveSubCategory(category.id)}
+                                                        onClick={()=>saveSubCategory(category.id)}
                                                         className="btn-default btn_off btn-confirm">확인
                                                 </button>
                                             </div>
                                         </div>
                                     }
-                                {expandedMenus[category.id] && category.sub?.map((sub, rdex) =>(
+                                {expandedMenus[category.id] && category.child?.map((sub, rdex) =>(
                                     <div className="basic_item list-order-list" key={sub.id}>
                                         <div className="sub-indicator pl-[20px] pr-[20px]">
                                         <FontAwesomeIcon className="basic_item-bars" icon={faMinus}/>

@@ -5,7 +5,7 @@ async function getCategoryList() {
     localStorage.removeItem('category');
     try{
         const response = await noAuh.get('/category');
-        localStorage.setItem('category', JSON.stringify(response.data));
+        localStorage.setItem('category', JSON.stringify(response.data._embedded.categoryDtoList));
         return response
     }catch (error){
         return error;
@@ -16,7 +16,7 @@ async function getCategoryList() {
 async function createCategory(category) {
     localStorage.removeItem('category');
     try{
-        const response = await needAuth.post('/category');
+        const response = await noAuh.post('/category', category);
         localStorage.setItem('category', JSON.stringify(response.data));
         return response
     }catch (error){
@@ -24,4 +24,4 @@ async function createCategory(category) {
     }
 }
 
-export {getCategoryList};
+export {getCategoryList, createCategory};

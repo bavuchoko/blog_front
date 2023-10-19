@@ -1,7 +1,9 @@
 import axios from 'axios'
+import {useDispatch} from "react-redux";
+import {logout} from "../../store/slice/authSlice";
 
 // const BASE_URL = 'https://parkjongsu.com:18443/api';
-const BASE_URL = 'https://localhost:8080/api';
+const BASE_URL = 'http://localhost:8080/api';
 
 
 const noAuthapi = axios.create({
@@ -42,20 +44,25 @@ needAuthapi.interceptors.response.use(
             response: { status },
         } = error;
         if (status === 401) {
-
             const originalRequest = config;
-            // token refresh 요청
-            const accessToken = await needAuth.post(
-                BASE_URL+`/user/reissue`,
-            );
-            console.log(accessToken)
-            // 새로운 토큰 저장
-            // dispatch(userSlice.actions.setAccessToken(data.data.accessToken)); store에 저장
+            let accessToken
+            try {
+                const resonse = await needAuth.post(BASE_URL + `/user/reissue`,);
+                accessToken = resonse.data
+                console.log(accessToken)
+            }catch (error){
+                const dispatch = useDispatch();
+                dispatch(logout());
+                return Promise.reject(error);
+            }
             localStorage.removeItem("accessToken");
             await localStorage.setItem("accessToken", accessToken);
             originalRequest.headers.authorization = `Bearer ${accessToken}`;
-
-            return axios(originalRequest);
+            try {
+                return axios(originalRequest);
+            }catch (error){
+                return error;
+            }
         }
         console.log("response error", error);
         return Promise.reject(error);

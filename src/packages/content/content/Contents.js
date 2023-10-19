@@ -27,7 +27,7 @@ function Contents(props) {
 
     useEffect(() => {
         getList()
-    }, [loginUser]);
+    }, []);
 
     return (
         <div className="container-container">
