@@ -3,20 +3,21 @@ import axios from 'axios'
 // const BASE_URL = 'https://parkjongsu.com:18443/api';
 const BASE_URL = 'http://localhost:8080/api';
 
-axios.defaults.withCredentials = true;
 const noAuthapi = axios.create({
     baseURL: BASE_URL,
+    withCredentials: true,
 });
-
 
 const needAuthapi = axios.create({
     baseURL: BASE_URL,
+    withCredentials: true,
 });
 
 
 noAuthapi.interceptors.request.use((config) => {
     return config;
 });
+
 
 
 needAuthapi.interceptors.request.use((config) => {
@@ -26,6 +27,7 @@ needAuthapi.interceptors.request.use((config) => {
     }
     return config;
 });
+
 
 
 // 응답 인터셉터
@@ -40,24 +42,27 @@ needAuthapi.interceptors.response.use(
             response: { status },
         } = error;
         if (status === 401) {
-
             const originalRequest = config;
-            // token refresh 요청
-            const accessToken = await needAuth.post(
-                BASE_URL+`/user/reissue`,
-            );
-            console.log(accessToken)
-            // 새로운 토큰 저장
-            // dispatch(userSlice.actions.setAccessToken(data.data.accessToken)); store에 저장
+            let accessToken
+            try {
+                const resonse = await needAuth.post(BASE_URL + `/user/reissue`,);
+                accessToken = resonse.data
+                console.log(accessToken)
+            }catch (error){
+                return Promise.reject(error);
+            }
             localStorage.removeItem("accessToken");
             await localStorage.setItem("accessToken", accessToken);
             originalRequest.headers.authorization = `Bearer ${accessToken}`;
-
-            return axios(originalRequest);
+            try {
+                return axios(originalRequest);
+            }catch (error){
+                return error;
+            }
         }
-        console.log("response error", error);
         return Promise.reject(error);
     }
 );
+
 export const noAuh = noAuthapi
 export const needAuth = needAuthapi;
