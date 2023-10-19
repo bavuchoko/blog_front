@@ -15,8 +15,8 @@ import {faAngleDown, faAngleUp} from "@fortawesome/free-solid-svg-icons";
 import Menu from "./Menu";
 import Category from "./Category";
 import {useDispatch, useSelector} from "react-redux";
-import {setMenu} from "../../store/slice/menuSlice";
-import {getMenus} from "../../api/menu/MenuService";
+import {setCategory} from "../../store/slice/categorySlice";
+import {getCategoryList} from "../../api/category/CateogryService";
 
 function Navigator(props) {
     const [menuOpen, setMenuOpen]=useState(false)
@@ -38,13 +38,12 @@ function Navigator(props) {
             // menu 값이 없으면 쿼리를 보냅니다.
             async function fetchMenus() {
                 try {
-                    const response = await getMenus();
-                    dispatch(setMenu(response.data));
+                    const response = await getCategoryList();
+                    dispatch(setCategory(response.data));
                 } catch (error) {
                     console.log(error)
                 }
             }
-
             fetchMenus();
         }
         document.addEventListener("click", handleOutsideClick);

@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
-import menuReducer from './slice/menuSlice';
+import categoryReducer from './slice/categorySlice';
 import authReducer from "./slice/authSlice";
 
 export const store = configureStore({
     reducer: {
-        menu: menuReducer,
+        menu: categoryReducer,
         auth: authReducer
     },
 });
