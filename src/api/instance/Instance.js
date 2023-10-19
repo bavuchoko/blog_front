@@ -3,14 +3,16 @@ import axios from 'axios'
 // const BASE_URL = 'https://parkjongsu.com:18443/api';
 const BASE_URL = 'https://localhost:8080/api';
 
-axios.defaults.withCredentials = true;
+
 const noAuthapi = axios.create({
     baseURL: BASE_URL,
+    withCredentials: true,
 });
 
 
 const needAuthapi = axios.create({
     baseURL: BASE_URL,
+    withCredentials: true,
 });
 
 
