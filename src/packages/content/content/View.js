@@ -5,10 +5,8 @@ import ReplyCreate from '../reply/Create'
 
 function View(props) {
     const params = useParams();
-    console.log(":awdawd")
-
     return (
-        <div>
+        <div className="content-containers">
 
             <ReplyView/>
             <ReplyCreate/>

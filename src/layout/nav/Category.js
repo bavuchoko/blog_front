@@ -11,8 +11,8 @@ function Category({open, setCategoryOpen, categories, categoryRef}) {
         setCategoryOpen(false);
     }
     return (
-        <div>
-            <div className="modal_back" style={style} ref={categoryRef}>
+        <div  ref={categoryRef}>
+            <div className="modal_back" style={style}>
                 <img className="close-modal" src={Close} onClick={close} alt={'close Icon'}/>
             </div>
             <ul className="category-menu" style={style}>
@@ -22,17 +22,12 @@ function Category({open, setCategoryOpen, categories, categoryRef}) {
                 categories.map((category,index) => (
                     <div className="category-group"  key={index}>
                     <li className="link_name top-category"  key={category.id}>
-                        <Link to='/content'
-                              state= {{
-                                  category:category.name,
-                              }}>{category.name}</Link>
+                        <Link to={'/content?category='+category.name.toLowerCase()}>{category.name}</Link>
+                        {/*{category.name}*/}
                     </li>
                         {category.child.map (child =>(
                             <li className="link_name sub-category" key={`sub_${child.id}`}>
-                                <Link to='/content'
-                                      state= {{
-                                          category:child.name
-                                      }}>- {child.name}</Link>
+                                <Link to={'/content?category='+child.name.toLowerCase()}>- {child.name}</Link>
                             </li>
 
                             ))}

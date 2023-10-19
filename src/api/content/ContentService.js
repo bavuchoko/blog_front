@@ -24,13 +24,14 @@ async function deleteContentGame(id) {
 
 }
 
-async function getContentList(loginUser) {
+async function getContentList(loginUser, queryString) {
     try {
         const params ={
+            category : queryString,
             sort: 'createDate,desc'
         }
         if(loginUser){
-            return await needAuth.get('/content',
+            return await needAuth.get('/content'+queryString,
                 {
                     params: params
                 }
