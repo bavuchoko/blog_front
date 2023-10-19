@@ -86,10 +86,10 @@
         text-align: left;
         display: inline-block;
         letter-spacing: 1px;
-        color: #141E46;
+        color: #122265;
     }
     .nav-faChevronDown{
-        color: #141E46;
+        color: #122265;
         margin-left: 65px;
         display: inline-block;
         font-size: 0.8rem;
@@ -128,7 +128,22 @@
         border-top: 1px solid #f4f4f4;
         margin-top: 9px;
     }
-
+    .link_category{
+        position: fixed;
+        top: 1px;
+        width: 50%;
+        left: 25%;
+        line-height: 80px;
+        text-align: center;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        z-index: 21;
+        font-size: 20px;
+        font-weight: bolder;
+        color: #122265;
+        /*color: #122265;*/
+    }
 
     /*카테고리메뉴*/
     .close-modal{

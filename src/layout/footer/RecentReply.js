@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import {getRecentContent, getRecentReply} from "../../api/common/CommonService";
 
 function RecentReply(props) {
     const data=[
@@ -9,6 +10,24 @@ function RecentReply(props) {
         {id:5,body:"테스트용 공지사항5"},
         {id:6,body:"테스트용 공지사항6"}
     ]
+
+    async function getList() {
+        try {
+            const response = await getRecentReply();
+            console.log(response)
+            if(response.status===200){
+                // setData(response.data);
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+
+    useEffect(() => {
+        getList()
+    }, []);
+
 
     return (
         <div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 import Close from '../../assets/icons/close-white.png'
-function Category({open, setCategoryOpen, categories, categoryRef}) {
+function Category({open, setCategoryOpen, categories, categoryRef, setHead}) {
 
     const style = {
         display: open ? 'block' : 'none',
@@ -9,6 +9,9 @@ function Category({open, setCategoryOpen, categories, categoryRef}) {
 
     const close = () => {
         setCategoryOpen(false);
+    }
+    const sendHead = (txt) => {
+        setHead(txt);
     }
     return (
         <div  ref={categoryRef}>
@@ -22,12 +25,12 @@ function Category({open, setCategoryOpen, categories, categoryRef}) {
                 categories.map((category,index) => (
                     <div className="category-group"  key={index}>
                     <li className="link_name top-category"  key={category.id}>
-                        <Link to={'/content?category='+category.name.toLowerCase()}>{category.name}</Link>
+                        <Link to={'/content?category='+category.name.toLowerCase()} onClick={()=>sendHead(category.name)}>{category.name}</Link>
                         {/*{category.name}*/}
                     </li>
                         {category.child.map (child =>(
                             <li className="link_name sub-category" key={`sub_${child.id}`}>
-                                <Link to={'/content?category='+child.name.toLowerCase()}>- {child.name}</Link>
+                                <Link to={'/content?category='+child.name.toLowerCase()}  onClick={()=>sendHead(category.name+' / '+child.name)}>- {child.name}</Link>
                             </li>
 
                             ))}

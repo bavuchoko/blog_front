@@ -1,4 +1,7 @@
 import React from 'react';
+import {getContentList} from "../../api/content/ContentService";
+import {getLinks} from "../../api/common/CommonService";
+import {useEffect} from "react";
 
 function Link(props) {
     const data=[
@@ -9,6 +12,24 @@ function Link(props) {
         {id:5,body:"테스트용 공지사항5"},
         {id:6,body:"테스트용 공지사항6"}
     ]
+
+
+    async function getList() {
+        try {
+            const response = await getLinks();
+            console.log(response)
+            if(response.status===200){
+                // setData(response.data);
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+
+    useEffect(() => {
+        getList()
+    }, []);
 
     return (
         <div>

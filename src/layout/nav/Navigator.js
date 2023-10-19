@@ -22,6 +22,8 @@ function Navigator(props) {
     const [menuOpen, setMenuOpen]=useState(false)
     const [categoryOpen, setCategoryOpen]=useState(false)
 
+    const [head,setHead] = useState('')
+    const [headCount,setHeadCount] = useState(0)
     const categories = JSON.parse(localStorage.getItem('category'))
     const dispatch = useDispatch();
     const menuRef = useRef();
@@ -69,7 +71,7 @@ function Navigator(props) {
         <div className="navbar">
             {/*<Balloon open={open}/>*/}
             <Menu open={menuOpen}  menuRef={menuRef} />
-            <Category open={categoryOpen} setCategoryOpen={setCategoryOpen} categories={categories} categoryRef={categoryRef}/>
+            <Category open={categoryOpen} setCategoryOpen={setCategoryOpen} categories={categories} categoryRef={categoryRef} setHead={setHead}/>
             <div className="nav-row flex">
                 <div className="nav-profile flex">
                     <Link to= '/'><img src={Pjs} className="profile-img" alt="portrait"/></Link>
@@ -89,7 +91,16 @@ function Navigator(props) {
                             </Link>
                         </div>
                     </div>
+                    <div className="link_category">
+                        {head}
+                        { headCount > 0 &&
+                            <>
+                            ({headCount})
+                            </>
+                        }
+                    </div>
                 </div>
+
                 <div className="nav-menu">
                     <div className="nav-input-area">
                         <img src={Magnifier} className="nav-input-icon"/>

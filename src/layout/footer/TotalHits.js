@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import {getTags} from "../../api/common/CommonService";
 
 function TotalHits(props) {
     const total={
@@ -6,6 +7,24 @@ function TotalHits(props) {
         today:123,
         yesterday:323
     }
+
+    async function getList() {
+        try {
+            const response = await getTags();
+            console.log(response)
+            if(response.status===200){
+                // setData(response.data);
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+
+    useEffect(() => {
+        getList()
+    }, []);
+
 
     return (
         <div>

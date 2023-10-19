@@ -19,6 +19,7 @@ function Contents(props) {
     async function getList() {
         try {
             const response = await getContentList(loginUser, location.search.split('=')[1]);
+            console.log(response)
             if(response.status===200){
                 setIsLoding(false)
                 setData(response.data);
@@ -39,7 +40,7 @@ function Contents(props) {
 
 
 
-            {page.totalElements > 0 &&
+            {page &&
             <Pagination
                 count={page.totalElements}
                 shape="rounded"

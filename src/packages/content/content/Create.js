@@ -73,7 +73,7 @@ function Create(props) {
     return (
         <>
             <div className="create-header fixed"></div>
-            <div className="create-containers">
+            <div className="content-containers">
                 <div className="content-create-gategory">
                 <SelectBox />
                 </div>
