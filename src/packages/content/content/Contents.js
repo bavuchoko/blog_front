@@ -9,7 +9,7 @@ function Contents(props) {
     const loginUser = useSelector(state => state.auth.isLoggedIn);
 
     const [data, setData] = useState();
-    const [page, setPage] =useState(0);
+    const [page, setPage] =useState({});
     const [isLoading, setIsLoding] =useState(true);
     const [error, setError] =useState(false);
     const pageSearch = (e, value) => {

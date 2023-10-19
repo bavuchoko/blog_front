@@ -3,7 +3,6 @@ import {useDispatch} from "react-redux";
 import {logout} from "../../store/slice/authSlice";
 
 const BASE_URL = 'https://parkjongsu.com:18443/api';
-//
 // const BASE_URL = 'https://localhost:8080/api';
 
 

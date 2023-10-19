@@ -81,6 +81,9 @@
     }
 
     /*유저메뉴*/
+    .link_menu_setting{
+        display: none !important;
+    }
     ul.user-menu{
         display: block;
         width: 250px;
@@ -113,6 +116,10 @@
         margin-top: 9px;
     }
 
+    /*head 텍스트*/
+    .link_category{
+        display: none;
+    }
 
     /*카테고리메뉴*/
     .modal_back{
@@ -128,13 +135,13 @@
         width: 30px;
         height: 30px;
         position: absolute;
-        top: 10px;
+        top: 30px;
         right: 315px;
     }
     ul.category-menu{
         display: block;
         width: 300px;
-        padding-top: 30px;
+        padding-top: 50px;
         padding-bottom: 2px;
         position: fixed;
         top: 0;
@@ -144,11 +151,11 @@
         background: white;
         z-index: 100;
     }
-    ul.category-menu > li:not(.box_division){
+    ul.category-menu > div > li:not(.box_division){
         cursor: pointer;
         display: block;
         padding-left: 15px;
-        margin-bottom: 7px;
+        margin-bottom: 10px;
         text-decoration: none;
         font-size: 0.9rem;
         color: #666;
