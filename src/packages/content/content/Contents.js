@@ -19,10 +19,9 @@ function Contents(props) {
     async function getList() {
         try {
             const response = await getContentList(loginUser, location.search.split('=')[1]);
-            console.log(response)
             if(response.status===200){
                 setIsLoding(false)
-                setData(response.data);
+                setData(response.data._embedded.contentDtoList);
             }
             setPage(response.data.page)
         } catch (error) {

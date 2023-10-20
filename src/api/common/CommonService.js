@@ -5,7 +5,7 @@ import {noAuh} from "../instance/Instance";
 
 async function getNotice() {
     try {
-        const response = await noAuh.get('/recent');
+        const response = await noAuh.get('/notice/recent');
         if (response.status === 200) {
             return response;
         }
@@ -18,7 +18,7 @@ async function getNotice() {
 
 async function getRecentContent() {
     try {
-        const response = await noAuh.get('/recent');
+        const response = await noAuh.get('/content/recent');
         if (response.status === 200) {
             return response;
         }
@@ -32,7 +32,7 @@ async function getRecentContent() {
 
 async function getRecentReply() {
     try {
-        const response = await noAuh.get('/recent');
+        const response = await noAuh.get('/reply/recent');
         if (response.status === 200) {
             return response;
         }
@@ -55,7 +55,7 @@ async function getVisitCount() {
 
 async function getLinks() {
     try {
-        const response = await noAuh.get('/visit');
+        const response = await noAuh.get('/links');
         if (response.status === 200) {
             return response;
         }

@@ -1,30 +1,23 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {getContentList} from "../../api/content/ContentService";
-import {getLinks} from "../../api/common/CommonService";
+import {getLinks, getTags} from "../../api/common/CommonService";
 import {useEffect} from "react";
 
 function Link(props) {
-    const data=[
-        {id:1,body:"일이삼사오륙칠팔구싶일이삼awd"},
-        {id:2,body:"테스트용 공지사항2"},
-        {id:3,body:"테스트용 공지사항3"},
-        {id:4,body:"테스트용 공지사항4"},
-        {id:5,body:"테스트용 공지사항5"},
-        {id:6,body:"테스트용 공지사항6"}
-    ]
 
+    const [data, setData] =useState([])
 
     async function getList() {
         try {
             const response = await getLinks();
-            console.log(response)
             if(response.status===200){
-                // setData(response.data);
+                setData(response.data._embedded?.linkDtoList);
             }
         } catch (error) {
             console.log(error)
         }
     }
+
 
 
     useEffect(() => {
