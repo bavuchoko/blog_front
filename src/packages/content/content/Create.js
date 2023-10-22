@@ -10,7 +10,7 @@ import {noAuh} from "../../../api/instance/Instance";
 
 function Create(props) {
 
-
+    const domain = process.env.REACT_APP_DOMAIN_NAME;
     const editorConfiguration = {
         extraPlugins: [uploadPlugin],
         placeholder:"내용을 입력하세요",
@@ -57,6 +57,7 @@ function Create(props) {
     const tagHandler = (e) => {
         setTag(e.target.value);
     };
+
     const customUploadAdapter = (loader) => {
         return {
             upload() {
@@ -65,7 +66,7 @@ function Create(props) {
                     loader.file.then((file) => {
                         formData.append("file", file);
 
-                        noAuh.post("http://localhost:8080/api/v0/file/upload", formData)
+                        noAuh.post(domain + "/file", formData)
                             .then((res) => {
                                 resolve({
                                     default: res.data.data.uri,

@@ -8,6 +8,41 @@
         padding-top: 55px;
         width: 100%;
     }
+
+    /*본문*/
+    .content-list{
+        padding: 35px 15px;
+        border-bottom: 1px solid #ebebeb;
+    }
+    .content-list-title{
+        height: 25px;
+        font-size: 1.4rem;
+        font-weight: bold;
+        font-family: appleSandolGodic-bold, serif;
+    }
+    .content-list-body{
+        max-height:  40px;
+        line-height: 20px;
+        font-size: 0.9rem;
+        color: #504f4f;
+        overflow-y: hidden;
+        margin-bottom: 10px;
+        margin-top: 6px;
+    }
+
+
+    .content-list-category{
+        font-size: 0.8rem;
+        font-weight: bold;
+        color: #142872;
+    }
+    .content-list-createDate{
+        margin-top: 10px;
+        font-size: 0.8rem;
+        color: grey;
+    }
+
+    /*댓글*/
     .reply-open-btn{
         padding-left: 15px;
     }
@@ -92,8 +127,7 @@
 
     /*pagination*/
     .MuiPagination-root.MuiPagination-text.css-1oj2twp-MuiPagination-root{
-        margin: 0 auto !important;
-        width: fit-content !important;
+        display: none !important;
     }
     .css-1pi9rcw-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected{
         background-color: #141E46 !important;

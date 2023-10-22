@@ -1,5 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
 
+@font-face {
+    font-family: "appleSandolGodic-Regular";
+    font-weight: normal;
+    src: url("./assets/fonts/AppleSDGothicNeoR.ttf") format("truetype");
+}
+@font-face {
+    font-family: "appleSandolGodic-bold";
+    font-weight: bold;
+    src: url("./assets/fonts/AppleSDGothicNeoB.ttf") format("truetype");
+}
+@font-face {
+    font-family: "appleSandolGodic-er";
+    font-weight: normal;
+    src: url("./assets/fonts/AppleSDGothicNeoH.ttf") format("truetype");
+}
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

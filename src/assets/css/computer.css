@@ -3,6 +3,7 @@
 
     /*----------------------------container--------------------------------*/
 
+
     .containers{
         width: 100%;
         padding-top: 80px;
@@ -11,6 +12,37 @@
         margin: 0 auto;
         width: 820px;;
     }
+    /*본문*/
+    .content-list{
+        padding: 35px 0;
+        border-bottom: 1px solid #ebebeb;
+    }
+
+
+    .content-list-title{
+        font-size: 1.7rem;
+    }
+    .content-list-body{
+        max-height:  90px;
+        line-height: 28px;
+        font-size: 1rem;
+        color: #504f4f;
+        overflow-y: hidden;
+        margin-top: 10px;
+    }
+
+    .content-list-category{
+        font-size: 0.8rem;
+        font-weight: bold;
+        color: #142872;
+    }
+    .content-list-createDate{
+        margin-top: 10px;
+        font-size: 0.8rem;
+        color: grey;
+    }
+
+    /*댓글*/
     .reply-container{
         padding-top: 20px;
     }
@@ -92,9 +124,11 @@
         font-weight: bold;
     }
 
+
+
     /*pagination*/
     .MuiPagination-root.MuiPagination-text.css-1oj2twp-MuiPagination-root{
-        margin: 0 auto !important;
+        margin: 30px auto 90px;
         width: fit-content !important;
     }
     .css-1pi9rcw-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected{

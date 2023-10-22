@@ -3,6 +3,7 @@ import {Pagination} from "@mui/material";
 import {getContentList} from "../../../api/content/ContentService";
 import {useSelector} from "react-redux";
 import {useLocation, useParams} from "react-router-dom";
+import Content from "./Content";
 
 function Contents(props) {
     const params = useParams();
@@ -13,8 +14,8 @@ function Contents(props) {
     const [isLoading, setIsLoding] =useState(true);
     const [error, setError] =useState(false);
     const pageSearch = (e, value) => {
-        console.log(value)
     }
+    const domain = process.env.REACT_APP_DOMAIN_NAME;
     const location = useLocation();
     async function getList() {
         try {
@@ -28,16 +29,19 @@ function Contents(props) {
             setError(true)
         }
     }
-
     useEffect(() => {
         getList()
     }, [location]);
 
     return (
         <div className="container-container">
+             <div className="content-main">
+                 {data?.map(content =>(
 
+                     <Content  key={`content_${content.id}`} data={content} domain={domain}/>
+                 ))}
 
-
+             </div>
 
             {page &&
             <Pagination
