@@ -66,10 +66,10 @@ function Create(props) {
                     loader.file.then((file) => {
                         formData.append("file", file);
 
-                        noAuh.post(domain + "/file", formData)
+                        noAuh.post(domain + "/api/file", formData)
                             .then((res) => {
                                 resolve({
-                                    default: res.data.data.uri,
+                                    default: domain + "/images" + res.data.uri,
                                 });
                             })
                             .catch((err) => reject(err));
