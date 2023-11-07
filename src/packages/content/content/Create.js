@@ -3,8 +3,6 @@ import Editor from "ckeditor5-custom-build/build/ckeditor";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import SelectBox from "../../../components/utils/SelectBox";
 import {useNavigate} from "react-router-dom";
-import {getCategoryList} from "../../../api/category/CateogryService";
-import axios from "axios";
 import {noAuh} from "../../../api/instance/Instance";
 
 
@@ -45,7 +43,14 @@ function Create(props) {
                 "blockQuote",
             ],
             shouldNotGroupWhenFull: true
-        }
+        },
+        table: {
+            contentToolbar: [
+                'tableColumn',
+                'tableRow',
+                'mergeTableCells'
+            ]
+        },
     };
     const navigate = useNavigate();
     const [tag, setTag] = useState('');
