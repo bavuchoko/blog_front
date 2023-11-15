@@ -1,10 +1,9 @@
-import {BrowserRouter as Router, Navigate, Route, Routes} from "react-router-dom";
+import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
 import {HeaderContextProvider} from "./common/HeaderContextProvider";
 import {login} from "./store/slice/authSlice";
 import Root from "./layout/Root";
-import Index from "./layout/Index";
 import Contents from "./packages/content/content/Contents";
 import CreateContent from "./packages/content/content/Create";
 import ViewContent from "./packages/content/content/View";
@@ -12,6 +11,8 @@ import './assets/css/mobile.css';
 import './assets/css/tablet.css';
 import './assets/css/computer.css';
 import Setting from "./packages/setting/Setting";
+import Login from "./packages/user/Login";
+
 function App() {
 
   const dispatch = useDispatch();
@@ -37,7 +38,8 @@ function App() {
                 <Route path="/" element={<Root nav={true} foot={false} />} >
                     <Route path="/setting" element={<Setting />} />
                 </Route>
-                <Route path="/content/create" element={<CreateContent />} />
+                {/*<Route path="/content/create" element={isLoggedIn? <CreateContent /> : <Login/> } />*/}
+                <Route path="/content/create" element={<CreateContent /> } />
             </Routes>
         </Router>
     </HeaderContextProvider>
