@@ -4,7 +4,7 @@ function Content({data, domain}) {
 
     return (
         <div className="content-list flex">
-            <div>
+            <div className={`${data.thumbnail? 'dp-width': ''}`}>
                 <p className="content-list-title">{data.title}</p>
                 <p className="content-list-body">{data.body}</p>
                 <span className="content-list-category">{data.category}</span>

@@ -13,6 +13,10 @@
         width: 820px;;
     }
     /*본문*/
+
+    .dp-width{
+        width: calc(100% - 130px);
+    }
     .content-list{
         padding: 35px 0;
         border-bottom: 1px solid #ebebeb;
@@ -22,6 +26,7 @@
     .content-list-title{
         font-size: 1.7rem;
     }
+
     .content-list-body{
         max-height:  90px;
         line-height: 28px;
@@ -29,6 +34,7 @@
         color: #504f4f;
         overflow-y: hidden;
         margin-top: 10px;
+        margin-bottom: 10px;
     }
 
     .content-list-category{
@@ -41,6 +47,14 @@
         font-size: 0.8rem;
         color: grey;
     }
+    .content-list-img{
+        margin-top: 40px;
+        width: 120px;
+        height: 120px;
+        margin-left: 10px;
+    }
+
+
 
     /*댓글*/
     .reply-container{

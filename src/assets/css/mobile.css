@@ -7,6 +7,10 @@
     }
 
     /*본문*/
+    .dp-width{
+        width: calc(100% - 70px);
+    }
+
     .content-list{
         padding: 20px 15px;
         border-bottom: 1px solid #ebebeb;
@@ -26,6 +30,7 @@
         overflow-y: hidden;
         margin-bottom: 10px;
         margin-top: 6px;
+        margin-bottom: 6px;
     }
 
     .content-list-category{
@@ -37,6 +42,13 @@
         margin-top: 10px;
         font-size: 0.8rem;
         color: grey;
+    }
+    .content-list-img{
+        margin-top: 10px;
+        width: 60px;
+        height: 60px;
+        margin-left: 10px;
+        background: #2f2f2f;
     }
 
 

@@ -8,6 +8,13 @@ import {noAuh} from "../../../api/instance/Instance";
 
 function Create(props) {
 
+    //실제로 남아있는 이미지 : 이미지를 추가했다가 삭제하거나 수정함으로 인해서 컨텐츠를 마지막으로 등록버튼 누르기 전에 현재 남아있는 img 태그속 이미지들
+    const [realImageArray, setRealImageArray] = useState([]);
+
+    // 이미지 업로드를 통해 서버에 등록된 이미지. 컨트츠에 현재 남아있는 이미지와 일치 하지 않을 수 있다.
+    // imgArray는  최소한 realImageArray 보다 같거나 많다. 즉 등록 이후 컨텐츠에 남아있지 않는 이미지들은 삭제해주어야 한다.
+    // realImageArray 중 첫번째 이미지로 해당 컨텐츠의 썸네일을 지정해준다.
+    const imgArray=[]
     const domain = process.env.REACT_APP_DOMAIN_NAME;
     const editorConfiguration = {
         extraPlugins: [uploadPlugin],
@@ -73,9 +80,11 @@ function Create(props) {
 
                         noAuh.post(domain + "/api/file", formData)
                             .then((res) => {
+
                                 resolve({
                                     default: domain + "/images" + res.data.uri,
                                 });
+                                imgArray.push(res.data.uri.substring(res.data.uri.lastIndexOf('/')+1))
                             })
                             .catch((err) => reject(err));
                     });
@@ -130,7 +139,6 @@ function Create(props) {
             category:category,
             tags:tags
         }
-        console.log(content)
     }
 
 
@@ -150,6 +158,16 @@ function Create(props) {
                     config={editorConfiguration}
                     onChange={(event, editor) => {
                         setHtmlbody(editor.getData());
+                        const srcList =Array.from( new DOMParser().parseFromString( editor.getData(), 'text/html' )
+                            .querySelectorAll( 'img' ) )
+                            .map( img => {
+                                const src =  img.getAttribute( 'src' )
+                                if(src){
+                                    const extractedPart = src.substring(src.lastIndexOf('/') + 1);
+                                    return extractedPart;
+                                }
+                            } )
+                        setRealImageArray(srcList);
                     }}
                 />
 
