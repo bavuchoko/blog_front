@@ -127,11 +127,11 @@
 
 
     /*pagination*/
-    .MuiPagination-root.MuiPagination-text.css-1oj2twp-MuiPagination-root{
+    .MuiPagination-root.MuiPagination-text{
         margin: 30px auto 90px;
         width: fit-content !important;
     }
-    .css-1pi9rcw-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected{
+    .Mui-selected{
         background-color: #141E46 !important;
     }
 
