@@ -65,6 +65,7 @@ function Create(props) {
     const [category, setCategory] = useState([]);
     const [title, setTitle] = useState('');
     const [htmlBody, setHtmlbody] = useState('');
+    const [body, setBody] = useState('');
     const categories = JSON.parse(localStorage.getItem('category'))
     const tagHandler = (e) => {
         setTag(e.target.value);
@@ -157,6 +158,8 @@ function Create(props) {
                     editor={Editor}
                     config={editorConfiguration}
                     onChange={(event, editor) => {
+                        let aa=editor.getData()
+                        setBody(editor.editing.view.domRoots.get("main").innerText)
                         setHtmlbody(editor.getData());
                         const srcList =Array.from( new DOMParser().parseFromString( editor.getData(), 'text/html' )
                             .querySelectorAll( 'img' ) )
